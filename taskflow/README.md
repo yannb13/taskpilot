@@ -1,144 +1,140 @@
 # TaskPilot
 
-Application web full-stack de gestion de tâches personnelles avec authentification sécurisée et tableau interactif en drag & drop.
+Application web full-stack de gestion de tâches avec authentification sécurisée et tableau Kanban interactif en drag & drop.
 
 ---
 
 ## Présentation
 
-TaskPilot est une application permettant à un utilisateur de gérer efficacement ses tâches quotidiennes grâce à une interface moderne inspirée des tableaux Kanban.
+TaskPilot permet à un utilisateur de gérer ses tâches quotidiennes dans une interface moderne et intuitive.
 
-Chaque utilisateur possède son propre espace sécurisé dans lequel il peut créer, organiser et suivre ses tâches en temps réel.
+Chaque utilisateur possède un espace personnel sécurisé pour :
+
+- créer des tâches  
+- modifier des tâches  
+- supprimer des tâches  
+- organiser les tâches par statut  
 
 ---
 
 ## Fonctionnalités
 
-* Inscription et connexion sécurisées (JWT)
-* Gestion complète des tâches (CRUD)
-* Organisation des tâches en tableau Kanban
-* Drag & Drop fluide avec **dnd-kit**
-* Filtrage des tâches par statut
-* Recherche dynamique
-* Notifications visuelles (toast)
-* Dashboard avec statistiques
-* Interface responsive
+- Authentification sécurisée avec JWT  
+- CRUD complet des tâches  
+- Tableau Kanban avec drag & drop (dnd-kit)  
+- Recherche dynamique  
+- Filtrage par statut  
+- Dashboard avec statistiques  
+- Interface responsive  
 
 ---
 
-## Technologies utilisées
+## Technologies
 
 ### Frontend
 
-* React
-* React Router DOM
-* Axios
-* dnd-kit (drag & drop)
-* CSS moderne responsive
+- React  
+- React Router  
+- Axios  
+- dnd-kit  
+- CSS responsive  
 
 ### Backend
 
-* Node.js
-* Express
-* MySQL
-* JSON Web Token
-* bcrypt
+- Node.js  
+- Express  
+- MySQL  
+- JWT  
+- bcrypt  
 
 ---
 
-## Architecture
-
-Application full-stack séparée en deux parties :
-
-* **Frontend** : interface utilisateur React (SPA)
-* **Backend** : API REST sécurisée avec Express
-* **Base de données** : MySQL
-
-Chaque requête vers l’API est protégée par un token JWT.
-
----
-
-## Installation du projet
+## Installation
 
 ### 1. Cloner le projet
 
-```bash
 git clone https://github.com/yannb13/taskpilot.git
 cd taskpilot
-```
 
----
 
-### 2. Installation du backend
+### 2. Configurer le backend
 
-```bash
+Créer un fichier `.env` dans le dossier backend :
+
+PORT=5000
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=
+DB_NAME=taskpilot
+JWT_SECRET=my_secret_key
+
+
+Installer et lancer :
+
 cd backend
 npm install
 npm run dev
-```
 
----
+### 3. Lancer le frontend
 
-### 3. Installation du frontend
-
-```bash
 cd frontend
 npm install
 npm run dev
-```
+
+Application accessible sur :
+
+http://localhost:5173
 
 ---
 
-## Configuration base de données
+## Base de données
 
-Créer une base MySQL puis exécuter :
+Créer une base MySQL :
 
-```sql
+taskpilot
+
+Puis exécuter :
+
 CREATE TABLE tasks (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  title VARCHAR(255) NOT NULL,
-  description TEXT,
-  status VARCHAR(50) DEFAULT 'todo',
-  user_id INT,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+id INT AUTO_INCREMENT PRIMARY KEY,
+title VARCHAR(255) NOT NULL,
+description TEXT,
+status VARCHAR(50) DEFAULT 'todo',
+user_id INT,
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-```
 
 ---
 
-## Structure du projet
+## Structure
 
-```
 taskpilot/
-│
-├── backend/
-│   ├── config/
-│   ├── middleware/
-│   ├── routes/
-│   └── server.js
-│
-└── frontend/
-    ├── components/
-    ├── pages/
-    ├── services/
-    └── App.jsx
-```
+backend/
+frontend/
 
 ---
 
-## Améliorations futures
+## Sécurité
 
-* Mode sombre (dark mode)
-* Priorité des tâches
-* Dates d’échéance
-* Partage de tableaux
-* Notifications en temps réel
-* Version mobile optimisée
+- Authentification JWT  
+- Hash des mots de passe avec bcrypt  
+- Protection des routes API  
+- Données isolées par utilisateur  
 
 ---
 
-## Yann BOISSON
+## Améliorations possibles
 
-Projet réalisé dans le cadre de la formation **Développeur Web et Web Mobile Full-Stack**.
+- Mode sombre  
+- Priorité des tâches  
+- Dates d’échéance  
+- Notifications temps réel  
+- Version mobile optimisée  
+- Déploiement cloud  
 
 ---
+
+## Auteur
+
+Yann BOISSON  
+Formation Développeur Web et Web Mobile
